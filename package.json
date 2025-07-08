@@ -1,0 +1,56 @@
+{
+  "name": "n8n-nodes-browserai",
+  "version": "0.1.14",
+  "description": "An n8n community node for BrowserAI integration!",
+  "keywords": [
+    "n8n-community-node-package"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "author": {
+    "name": "Alex Gurinovich",
+    "email": "alexanderg@brightdata.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hola/n8n-nodes-browserai"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "format": "prettier nodes credentials --write",
+    "lint": "eslint nodes credentials package.json",
+    "lintfix": "eslint nodes credentials package.json --fix",
+    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/browseraiApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/BrowserAi/BrowserAi.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "~5.45",
+    "eslint-plugin-n8n-nodes-base": "^1.11.0",
+    "gulp": "^4.0.2",
+    "n8n-workflow": "*",
+    "prettier": "^2.7.1",
+    "typescript": "~4.8.4"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "dependencies": {
+    "n8n-nodes-browserai": "^0.1.2"
+  }
+}
